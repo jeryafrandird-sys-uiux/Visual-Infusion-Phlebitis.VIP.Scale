@@ -1,0 +1,76 @@
+{
+  "name": "InfusMonitor",
+  "type": "object",
+  "properties": {
+    "patient_name": {
+      "type": "string",
+      "description": "Nama pasien"
+    },
+    "room_number": {
+      "type": "string",
+      "description": "Nomor kamar"
+    },
+    "bed_number": {
+      "type": "string",
+      "description": "Nomor tempat tidur"
+    },
+    "iv_site": {
+      "type": "string",
+      "description": "Lokasi pemasangan infus"
+    },
+    "vip_score": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "description": "Skor VIP Scale"
+    },
+    "symptoms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Gejala yang ditemukan"
+    },
+    "action_taken": {
+      "type": "string",
+      "description": "Tindakan yang dilakukan"
+    },
+    "interventions_checked": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Intervensi keperawatan yang sudah dilakukan (tercentang)"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Catatan tambahan"
+    },
+    "nurse_name": {
+      "type": "string",
+      "description": "Nama perawat"
+    },
+    "monitoring_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Tanggal dan waktu monitoring"
+    }
+  },
+  "required": [
+    "patient_name",
+    "room_number",
+    "vip_score",
+    "nurse_name"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
